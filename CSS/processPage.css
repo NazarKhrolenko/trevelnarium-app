@@ -1,0 +1,539 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+body{
+    height: 100vh;
+    font-size: 16px;
+}
+.container{
+    display: flex;
+    height: 100vh;
+    position: relative;
+    min-width: 320px; 
+}
+.container#blur.active{
+    filter: blur(3px);
+}
+
+.dark-mode .sidebar::-webkit-scrollbar {
+    width: 8px;
+}
+.dark-mode .sidebar::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 10px;
+}
+.sidebar {
+    flex:1;
+    text-align: center;
+    max-height: 100vh;
+    overflow-y: auto;
+    scroll-behavior: smooth; /* Плавний скрол */
+    margin: 15px;
+    padding: 15px;
+}
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+h1{
+    padding: 30px;
+    
+}
+.modalWindow_closeSpan{
+    position: absolute;
+    top: -8px;
+    right: 10px;
+    font-size: 40px;
+    font-weight: bolder;
+    cursor: pointer;
+}
+.tripTypes{
+    
+}
+ul{
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+    
+}
+    
+li{
+    padding: 0 30px;
+    white-space: nowrap;
+}
+
+#map { 
+    flex: 1.7;
+    height: 90vh;
+    background-color: var(--color-light--1);
+    margin: auto;
+    min-height: 300px;
+    
+} 
+
+
+dialog::backdrop{
+    background:rgba(244, 242, 242, 0.5); /* Затемнення (50% чорний) */
+    backdrop-filter: blur(5px); 
+    transition: opacity 0.3s ease-in-out; 
+}
+.modalWindow{
+    position: fixed;
+    max-width: 450px;
+    min-height: auto;
+    top: 40%;
+    left: 50%;
+    border-radius: 20px;
+    transform: translate(-50%,-50%);
+    background-color: transparent ;
+    transition: 0.5s;
+    z-index: 401;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    border: transparent;
+    transition: opacity 2s ease-in-out;
+}
+
+
+h2{
+    text-align: center;
+    padding: 12px;
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+.modalWindow_closeSpan{
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    font-size: 24px;
+    cursor: pointer;
+    color: white;
+}
+.modalWindow_closeSpan:hover{
+    color: #171010;
+}
+.form{
+    max-width: 450px;
+    display: flex;
+    flex-direction: column;
+}
+.form__row{
+    padding: 0 40px;
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    gap:5px
+}
+.form_label{
+    text-align: left;
+    font-weight: 700;
+}
+.form__row input:not(.form__input--file) {
+    width: 100%;
+    min-height: 10px;
+    font-size: 24px;
+    border: 2px solid #a7a7a7;
+    border-radius: 8px;
+    transition: 0.3s;
+    background-color: #fbfbfb;
+}
+
+.form__input--file {
+    display: none;
+}
+
+/* Стилізуємо кастомний label */
+.custom-file-upload {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #0056b3;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+
+}
+.form__btn {
+    margin-top: 15px;
+    padding: 10px 40px;
+    cursor: pointer;
+    border-radius: 12px;
+    border: none;
+    color: #fff;
+    font-size: 32px;
+    position: relative; /* Додаємо позицію */
+    overflow: hidden;   /* Уникаємо виходу за межі */
+    background: #016ece;
+    transition: color 0.3s ease-in-out;
+}
+
+
+
+
+/*Side TAB*/
+.dark-mode .sideTab {
+    background-color: #222; /* Dark background */
+    color: #fff; /* Light text */
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2); /* Lighter shadow */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Subtle border */
+}
+.dark-mode .sideTab::-webkit-scrollbar {
+    width: 8px;
+}
+.dark-mode .sideTab::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 10px;
+}
+.sideTab{
+    position: relative;
+    overflow: hidden;
+    padding: 20px;
+    margin: 0 auto;
+    max-width: 460px;
+    background-color:transparent ;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0, 0,.5);
+    margin-top: 20px;
+    max-height: 370px;
+}
+@media(min-height: 370px) {
+    .sideTab{
+        overflow-y: auto;
+        scroll-behavior: smooth
+    }
+}
+
+.trip{
+    
+}
+.trip__details{
+    display: flex;
+    justify-content: space-between;
+    padding: 2px;
+}
+
+
+.trip__image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin: 5px;
+}
+
+.custom-popup .leaflet-popup-tip-container,
+.custom-popup .leaflet-popup-tip {
+    display: none;
+}
+
+.custom-popup .leaflet-popup-close-button {
+    display: none;
+}
+.leaflet-popup-content-wrapper, .leaflet-popup-tip{
+    background: transparent !important;
+}
+
+/* Прибираємо зайвий відступ контенту popup */
+.custom-popup .leaflet-popup-content {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: auto !important;
+}
+
+.cardBody{
+    height: 50vh;
+    background-color: #171010;
+    display: grid;
+    place-items: center;
+}
+
+.card-group{
+ 
+
+}
+
+.card {
+    aspect-ratio: 5/7;
+    background-color: #a7a7a7;
+    position: absolute;
+    transition: transform 800ms cubic-bezier(.05,.43,.25,.95);
+    top:-195px;
+    left: -50px;
+   
+}
+.big-card{
+    width: 100px;
+    border-radius: 8px;
+}
+
+.little-card{
+    background-color: #6a6060;
+    width: 50px;
+    border-radius: 8px;
+   transform: translate(50%,50%);
+  
+ 
+}
+
+.big-card:nth-child(2){
+    background-color: aqua;
+    transform: translateX(-10%) rotate(-1deg);
+}
+.big-card:nth-child(4){
+    background-color: rgb(0, 81, 255);
+    transform:  rotate(2deg);
+}
+.big-card:nth-child(6){
+    background-color: rgb(255, 0, 60);
+    transform: translateX(-6%) rotate(-3deg);
+}
+.big-card:nth-child(8){
+    background-color: rgb(166, 255, 0);
+    transform: translateX(10%, 3%) rotate(5deg);
+}
+
+.card-group:hover > .big-card:nth-child(2) {
+    transform: translate(-75% ,16%) rotate(-24deg);
+}
+.card-group:hover > .big-card:nth-child(4) {
+    transform: translate(-25% ,8%) rotate(-8deg);
+ 
+}
+.card-group:hover > .big-card:nth-child(6) {
+    transform: translate(25% ,8%) rotate(8deg);
+ 
+}
+.card-group:hover > .big-card:nth-child(8) {
+    transform: translate(75% ,16%) rotate(24deg);
+ 
+}
+
+.card-group:hover > .little-card:nth-child(1) {
+    background-color: aquamarine;
+    transform: translate(250% ,-80%) rotate(-15deg);  
+}
+.card-group:hover > .little-card:nth-child(3) {
+    background-color: blueviolet;
+    transform: translate(200% ,200%) rotate(15deg);  
+}
+.card-group:hover > .little-card:nth-child(5) {
+    background-color: darkred;
+    transform: translate(-200% ,-60%) rotate(15deg);  
+}
+.card-group:hover > .little-card:nth-child(7) {
+    transform: translate(-160% , 200%) rotate(-30deg);  
+}
+
+
+
+/********************************************************************/
+
+body.dark-mode {
+    background-color: black;
+    color: white;
+}
+.themeToggle{
+    display: block;
+    position: relative;
+    margin-left: 40px;
+    
+}
+.themeToggle button{
+    width: 120px;       /* Set specific width for the button */
+    height: 40px;  
+    background-color: aquamarine;
+    border: 0;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.dark-mode .modalWindow{
+    color: #fff;
+    box-shadow: 0 5px 15px rgba(51, 181, 229, 0.4);
+}
+.dark-mode dialog::backdrop{
+    background: rgba(0,0,0,0.4);
+}
+
+
+#google_translate_element{
+    position: absolute;
+    top: 5%;
+    left: 5%;
+}
+
+
+/***************************************8888*/
+
+.themeToggle{
+    width: 80px;
+    height: 80px;
+    background: #0056b3;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 0;
+}
+.checkToggle{
+    position: absolute;
+    opacity: 0;
+}
+.sunny{ position: absolute;
+    font-size: 3em;
+    color: #666;
+    filter: drop-shadow(0 0 2px rgba(0,0,0.5));
+    
+    transition: 1s ease;
+}
+.checkToggle:checked~.sunny {
+    transform: rotate(360deg) scale(0);
+}
+.moon{
+    font-size: 3em;
+    color: #666;
+    filter: drop-shadow(0 0 2px rgba(0,0,0.5));
+    transform: scale(0);
+}
+.toggle{
+    position: absolute;
+    display: block;
+    width: 80px;
+    height: 80px;
+    background: #fbfbfb;
+    border-radius: 50%;
+    box-shadow: 
+    inset 0 8px 60px rgba(0, 0, 0, .1),
+    inset 0 8px 80px rgba(0, 0, 0, .1),
+    inset 0 -4px 4px rgba(0, 0, 0, .1);
+    z-index: -1;
+    transition: 1s;
+}
+.checkToggle:checked~.toggle {
+    background: #2b2b2b;
+}
+.checkToggle:checked~.moon {
+    transform: scale(1) rotate(360deg) ;
+    transition: 1s ease; 
+}
+
+.ratingBar{
+    max-height: 100vh;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+}
+
+
+
+@media (max-width: 1024px) {
+    .container {
+
+    }
+    .sidebar {
+        width: 100%;
+        height: auto;
+        order: -1;
+        flex: 0.75;
+    }
+    .themeToggle{
+        margin-left: 0;
+    }
+    h1 {
+        font-size: 22px;
+        padding: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 22px;
+        padding: 15px;
+    }
+    .modalWindow {
+        max-width: 90%;
+    }
+    .sideTab{
+        max-width: 235px;
+    }
+    .sidebar{
+        width: 300px;
+        position: absolute;
+        z-index: 1000;
+        left: -450px;
+        background: transparent; /* Semi-transparent */
+        backdrop-filter: blur(10px);
+        transition: left 0.3s ease-in-out;
+    }
+    .ham-menu{
+        opacity: 1 !important;
+        z-index: 1000;
+    }
+
+}
+
+@media (max-width: 480px) {
+   
+    
+    li {
+        padding: 10px;
+    }
+    .themeToggle {
+        width: 50px;
+        height: 50px;
+    }
+  
+}
+
+.ham-menu {
+    height: 50px;
+    width: 40px;
+    margin-left: auto;
+    position: absolute;
+    top: 6%;
+    right: 5%;
+    opacity: 0;
+}
+.ham-menu span {
+    height: 5px;
+    width: 100%;
+    background-color: #6F86FF;
+    border-radius: 25px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: .3s ease;
+}
+.ham-menu span:nth-child(1) {
+    top: 25%;
+}
+.ham-menu span:nth-child(3) {
+    top: 75%;
+}
+.ham-menu.active span {
+    background-color: white;
+}
+.ham-menu.active span:nth-child(1) {
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+.ham-menu.active span:nth-child(2) {
+    opacity: 0;
+}
+.ham-menu.active span:nth-child(3) {
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+
+.sidebar.active{
+    display: block !important;
+    transition: left 0.3s ease-in-out;
+    left: 0;
+}

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/processPage.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />   
+    <title>Trevelnariun</title>
+    <link rel="icon" href="../Photo/2708.svg">
+</head>
+<body>
+<div class="container" id="blur">
+   <div class="sidebar">
+    <div class="header">
+        <h1>Trevelnatium</h1>
+        <label class="themeToggle">
+            <input type="checkbox" class="checkToggle">
+            <ion-icon name="sunny-outline" class="sunny"></ion-icon>
+            <ion-icon name="moon" class="moon"></ion-icon>
+            <span class="toggle"></span>
+           </label>
+    </div>   
+   </div>
+   <div id="map"></div>
+   <!-- <div class="themeToggle">
+    <button>Change Theme</button>
+   </div> -->
+</div>
+
+
+
+<!-- <div class="cardBody">
+
+
+<div class="card-group">
+    <div class="little-card card">
+            
+        </div>
+        <div class="big-card card"> 
+            
+        </div>
+        <div class="little-card card">
+            
+        </div>
+        <div class="big-card card"> 
+            
+        </div>
+        <div class="little-card card">
+            
+        </div>
+        <div class="big-card card"> 
+            
+        </div>
+        <div class="little-card card">
+            
+        </div>
+        <div class="big-card card"> 
+            
+        </div>
+    </div>
+   </div> -->
+   <dialog class="modalWindow" id="popup">
+    <h2>Trevelnatium</h2>
+    <span class="modalWindow_closeSpan" id="popupClose">&times;</span>
+    <form class="form">
+        <div class="form__row">
+            <label class="form_label">Rate your trip 0-10</label>
+            <input class="form__input--rate" type="text">
+        </div>
+        <div class="form__row">
+            <label class="form_label">How much you spent?</label>
+            <input class="form__input--expensies" type="text">
+        </div>
+        <div class="form__row">
+            <label class="form_label">Can you continue sentance? City of ...</label>
+            <input class="form__input--place" type="text">
+        </div>
+        <div class="form__row">
+            <label class="form_label">What local cuisine or food have you try?</label>
+            <input class="form__input--cuisine" type="text">
+        </div>
+        <div class="form__row">
+            <label class="form_label">Share with some photos</label>
+            <label class="custom-file-upload">
+                <input type="file" class="form__input--file" multiple>
+                📤 Upload File
+            </label>
+        <button type="submit" class="form__btn">Save Trip</button>
+
+    </form>
+   </dialog>
+   <!-- <div id="google_translate_element"></div> -->
+   <div class="ham-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+   </div>
+   
+</body>
+<script defer src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script defer src="../JS/processPage.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<!-- <script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement(
+            {pageLanguage: 'en', includedLanguages: 'en,uk,pl,de,fr,it,es,ru'},
+            'google_translate_element'
+        );
+    }
+    </script>
+<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script> -->
+</html>
